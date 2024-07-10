@@ -20,30 +20,39 @@
         function getcomputerchoice ()
     {  
 
-        let rock = 0
-        let paper = 1
-        let scissors = 2
-
-       let compresult = Math.floor(Math.random() * 3)
+         
+       var compresult = Math.floor(Math.random() * 3)
 
        console.log(compresult)
 
-       if (compresult > 1 ) {return "rock"} 
-       else if (compresult < 1){return "paper"}
+       if (compresult < 0 ) {return "rock"} 
+       else if (compresult > 1){return "paper"}
        else  {return "scissors"}
         
      }
 
 function gethumanchoice(){
     let humantext = prompt ("Rock paper scissors against Mr computer! Write your selection in the prompt", "rock");
-    return humantext
+    return humantext.toLowerCase();
 
 }
 
 
-        console.log(getcomputerchoice());
+function comparechoices(){
+    if (getcomputerchoice() == "rock" && gethumanchoice == "paper")
+    {return "MR computer won!"}
+    else if (getcomputerchoice == "rock" && gethumanchoice == "scissors")
+    {return "You won!"}
+    else{return "it's a tie!"}
+}
 
-        console.log(gethumanchoice());
+
+        
+         console.log(getcomputerchoice());
+         console.log(gethumanchoice()); 
+        console.log(comparechoices());
+        
+       
     </script>
 </body>
 </html>
