@@ -46,8 +46,10 @@ function playround(){
 var compchoice = getcomputerchoice();
 var humnchoice = gethumanchoice();
 //human rock choices
-if (compchoice == "rock" && humnchoice == "rock")
-{console.log("Tie")}
+if (compchoice == "rock" && humnchoice == "rock"){
+    console.log("Tie");
+    window.alert("Tie!");
+}
 else if (compchoice == "paper" && humnchoice =="rock"){
     computerscore+=1; 
     console.log("you lost");
@@ -93,12 +95,24 @@ else {console.log ("not a choice, try again!?")}
 }
 
 
-const gamerounds =2 
-for(let i = 0; i < gamerounds; i++){
-    playround();
+const gamerounds =5 
+function playgame(){
+    for(let i = 0; i < gamerounds; i++){
+    playround(()=> console.log("round done")); 
 }
+    if(computerscore < humanscore){
+        window.alert("You Won!\nFinal score: " + "Computer: 0" + computerscore + " Your score: 0" + humanscore)
+    }
+    else if(computerscore > humanscore){
+        window.alert("Computer Won!\nFinal score: " + "Computer: 0" + computerscore + " Your score: 0" + humanscore)
+    }
+    else {
+        window.alert("Draw!\nFinal score: " + "Computer: 0" + computerscore + " Your score: 0" + humanscore)
+}
+}
+
        
-        
+//
        
     </script>
 </body>
