@@ -15,42 +15,89 @@
         console.log("Hello World")
 
 
-
+humanscore = 0;
+computerscore = 0;
         
         function getcomputerchoice ()
     {  
 
-         
+       
        var compresult = Math.floor(Math.random() * 3)
 
-       console.log(compresult)
+       console.log(compresult + "  NOTE: 0 is rock, 1 is paper, 2 is scissors ")
 
-       if (compresult < 0 ) {return "rock"} 
-       else if (compresult > 1){return "paper"}
-       else  {return "scissors"}
+       if (compresult < 1 ) { return "rock"} 
+       else if (compresult  = 1 && compresult < 2) {return  "paper"}
+       else  {return  "scissors"}
         
      }
 
+
+
 function gethumanchoice(){
+    
     let humantext = prompt ("Rock paper scissors against Mr computer! Write your selection in the prompt", "rock");
     return humantext.toLowerCase();
 
 }
 
 
-function comparechoices(){
-    if (getcomputerchoice() == "rock" && gethumanchoice == "paper")
-    {return "MR computer won!"}
-    else if (getcomputerchoice == "rock" && gethumanchoice == "scissors")
-    {return "You won!"}
-    else{return "it's a tie!"}
+function playround(){
+var compchoice = getcomputerchoice();
+var humnchoice = gethumanchoice();
+//human rock choices
+if (compchoice == "rock" && humnchoice == "rock")
+{console.log("Tie")}
+else if (compchoice == "paper" && humnchoice =="rock"){
+    computerscore+=1; 
+    console.log("you lost");
+    window.alert("You lost!");
+}
+else if (compchoice == "scissors" && humnchoice =="rock") { 
+    humanscore+=1;
+    console.log("You won!");
+    window.alert("You Won!");
+}
+//human paper choices
+else if (compchoice == "rock" && humnchoice =="paper"){
+    humanscore+=1;
+    console.log ("you won!");
+    window.alert("You won!")
+}
+else if (compchoice == "paper" && humnchoice =="paper") { 
+    console.log("Tie!");
+    window.alert("Tie!");
+}
+else if (compchoice == "scissors" && humnchoice =="paper") { 
+    computerscore=+1;
+    console.log("You lost!");
+    window.alert("You lost!")
+}
+//human scissor choices
+else if (compchoice == "rock" && humnchoice =="scissors"){
+    computerscore+=1;
+    console.log("you lost!");
+    window.alert("You lost!");
+}
+else if (compchoice == "paper" && humnchoice =="scissors") { 
+    humanscore+=1;
+    console.log("You won!");
+    window.alert("You won!")
+}
+else if (compchoice == "scissors" && humnchoice =="scissors") {
+    console.log("Tie!");
+    window.alert("Tie!")
+}
+
+else {console.log ("not a choice, try again!?")}
 }
 
 
-        
-         console.log(getcomputerchoice());
-         console.log(gethumanchoice()); 
-        console.log(comparechoices());
+const gamerounds =2 
+for(let i = 0; i < gamerounds; i++){
+    playround();
+}
+       
         
        
     </script>
